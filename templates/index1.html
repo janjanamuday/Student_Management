@@ -193,6 +193,16 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+        .stat-item.clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item.clickable:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
         .stat-icon {
             width: 50px;
             height: 50px;
@@ -408,7 +418,7 @@
                                     <p>Total Students</p>
                                 </div>
                             </div>
-                            <div class="stat-item">
+                            <div class="stat-item clickable" onclick="window.location.href='/analytics'">
                                 <img src="{% static 'images/analytics-icon.svg' %}" alt="Analytics" class="stat-icon">
                                 <div class="stat-info">
                                     <h3>98.5%</h3>

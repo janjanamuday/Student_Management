@@ -53,3 +53,46 @@ def deletedata(request,id):
     messages.error(request,"Data Deleted Successfully")
 
     return redirect('/')
+
+def analytics(request):
+    # Get all students
+    students = student.objects.all()
+    
+    # Calculate statistics
+    total_students = students.count()
+    
+    # Gender distribution
+    male_count = students.filter(gender='male').count()
+    female_count = students.filter(gender='female').count()
+    others_count = students.filter(gender='others').count()
+    
+    # Age distribution
+    age_groups = {
+        '18-25': students.filter(age__gte=18, age__lte=25).count(),
+        '26-35': students.filter(age__gte=26, age__lte=35).count(),
+        '36-45': students.filter(age__gte=36, age__lte=45).count(),
+        '46+': students.filter(age__gte=46).count(),
+    }
+    
+    # Recent students (last 10)
+    recent_students = students.order_by('-id')[:10]
+    
+    # Performance metrics (mock data for demonstration)
+    performance_data = {
+        'excellent': 35,
+        'good': 45,
+        'average': 15,
+        'needs_improvement': 5
+    }
+    
+    context = {
+        'total_students': total_students,
+        'male_count': male_count,
+        'female_count': female_count,
+        'others_count': others_count,
+        'age_groups': age_groups,
+        'recent_students': recent_students,
+        'performance_data': performance_data,
+    }
+    
+    return render(request, 'analytics.html', context)
