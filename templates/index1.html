@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -39,6 +40,7 @@
 
         .navbar {
             background: rgba(255, 255, 255, 0.1) !important;
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -55,6 +57,7 @@
 
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
@@ -133,10 +136,90 @@
 
         .table-container {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 30px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dashboard Hero Styles */
+        .dashboard-hero {
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .stat-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+        }
+
+        .stat-info p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .table-title {
@@ -306,6 +389,51 @@
         </div>
     </nav>
 
+    <!-- Dashboard Hero Section -->
+    <div class="dashboard-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <i class="fas fa-chart-line me-3"></i>
+                            Student Management Dashboard
+                        </h1>
+                        <p class="hero-subtitle">Manage your students with ease using our modern, intuitive interface</p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <img src="{% static 'images/student-icon.svg' %}" alt="Students" class="stat-icon">
+                                <div class="stat-info">
+                                    <h3>{{ student_count }}</h3>
+                                    <p>Total Students</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <img src="{% static 'images/analytics-icon.svg' %}" alt="Analytics" class="stat-icon">
+                                <div class="stat-info">
+                                    <h3>98.5%</h3>
+                                    <p>Success Rate</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <img src="{% static 'images/performance-icon.svg' %}" alt="Performance" class="stat-icon">
+                                <div class="stat-info">
+                                    <h3>A+</h3>
+                                    <p>Performance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="{% static 'images/dashboard-hero.svg' %}" alt="Dashboard" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-lg-4 mb-4">
@@ -326,7 +454,8 @@
                             <input type="number" class="form-control" placeholder="Age" name="age" required>
                         </div>
                         <div class="form-group mb-4">
-                            <select class="form-control" name="gender" required>
+                            <label for="gender" class="form-label">Gender</label>
+                            <select id="gender" class="form-control" name="gender" required>
                                 <option value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>

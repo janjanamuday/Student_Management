@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#iconGradient)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  
+  <!-- Student cap -->
+  <path d="M20 28 L44 28 L44 30 L42 30 L42 32 L22 32 L22 30 L20 30 Z" fill="white"/>
+  <path d="M22 32 L42 32 L40 36 L24 36 Z" fill="white"/>
+  
+  <!-- Face -->
+  <circle cx="32" cy="24" r="4" fill="white"/>
+  
+  <!-- Body -->
+  <rect x="28" y="36" width="8" height="12" fill="white" rx="2"/>
+  
+  <!-- Arms -->
+  <rect x="24" y="38" width="4" height="8" fill="white" rx="2"/>
+  <rect x="36" y="38" width="4" height="8" fill="white" rx="2"/>
+</svg> 

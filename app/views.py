@@ -4,8 +4,9 @@ from django.contrib import messages
 # Create your views here.
 def index(request):
     data=student.objects.all()
+    student_count=data.count()
     print(data)
-    context={'data':data}
+    context={'data':data, 'student_count':student_count}
     return render(request,'index1.html',context)
 
 
